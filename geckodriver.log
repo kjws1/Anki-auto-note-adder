@@ -397,7 +397,8 @@ console.warn: SearchSettings: "get: No settings file exists, new profile?" (new 
 1624826676483	Marionette	WARN	TLS certificate errors will be ignored for this session
 console.log: WebExtensions: reset-default-search: starting.
 console.log: WebExtensions: reset-default-search: No addons in our list are installed.
-\\firefox.exe" "--marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\Rati\\AppData\\Local\\Temp\\rust_mozprofileF0oraW"
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+nd" "-no-remote" "-profile" "C:\\Users\\Rati\\AppData\\Local\\Temp\\rust_mozprofileF0oraW"
 *** You are running in headless mode.
 1624826932310	Marionette	INFO	Marionette enabled
 console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\Rati\\AppData\\Local\\Temp\\rust_mozprofileF0oraW\\search.json.mozlz4", (void 0)))
@@ -409,8 +410,10 @@ JavaScript warning: https://pagead2.googlesyndication.com/bg/yXHsSCk3YzWUbRvqoZH
 * Can't use WebGL in headless mode (https://bugzil.la/1375585). ()
 JavaScript warning: https://pagead2.googlesyndication.com/bg/yXHsSCk3YzWUbRvqoZHyxkpI6JVLQi3qNywtkCkXe5s.js line 1 > eval line 5307 > eval line 1 > eval, line 1: Failed to create WebGL context: WebGL creation failed: 
 * Can't use WebGL in headless mode (https://bugzil.la/1375585). ()
-1624827005743	geckodriver	INFO	Listening on 127.0.0.1:59750
-1624827008789	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\Rati\\AppData\\Local\\Temp\\rust_mozprofilemNhSyx"
+console.log: WebExtensions: reset-default-search: starting.
+console.log: WebExtensions: reset-default-search: No addons in our list are installed.
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+nd" "-no-remote" "-profile" "C:\\Users\\Rati\\AppData\\Local\\Temp\\rust_mozprofilemNhSyx"
 *** You are running in headless mode.
 1624827009051	Marionette	INFO	Marionette enabled
 console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\Rati\\AppData\\Local\\Temp\\rust_mozprofilemNhSyx\\search.json.mozlz4", (void 0)))
@@ -418,3 +421,6 @@ console.warn: SearchSettings: "get: No settings file exists, new profile?" (new 
 1624827010339	Marionette	WARN	TLS certificate errors will be ignored for this session
 JavaScript warning: https://pagead2.googlesyndication.com/bg/yXHsSCk3YzWUbRvqoZHyxkpI6JVLQi3qNywtkCkXe5s.js line 1 > eval line 4378 > eval line 1 > eval, line 1: Failed to create WebGL context: WebGL creation failed: 
 * Can't use WebGL in headless mode (https://bugzil.la/1375585). ()
+console.log: WebExtensions: reset-default-search: starting.
+console.log: WebExtensions: reset-default-search: No addons in our list are installed.
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
