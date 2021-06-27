@@ -37,7 +37,10 @@ try:
     decks = invoke("deckNames")
     models = invoke("modelNames")
 except Exception as e:
-    print("Please Run Anki before and make sure AnkiConnect is Running properly.")
+    sg.popup_error(
+        "Please Run Anki before and make sure AnkiConnect is Running properly."
+    )
+    raise Exception("AnkiConnect is not running properly")
 
 layout = [
     [sg.Text("Auto Auto Note Adder")],
@@ -63,7 +66,9 @@ while True:
             continue
         firefox_options = Options()
         firefox_options.headless = True
-        driver = webdriver.Firefox(executable_path="./geckodriver.exe", options=firefox_options)
+        driver = webdriver.Firefox(
+            executable_path="./geckodriver.exe", options=firefox_options
+        )
 
         driver.get(
             "https://www.oxfordlearnersdictionaries.com/definition/english/"
@@ -72,21 +77,46 @@ while True:
         print(driver.current_url)
         try:
             word = driver.find_element_by_xpath("//h1[@hclass='headword']").text
-            pronunciation = driver.find_element_by_xpath("//div[@class='phons_n_am']/span[@class='phon']").text
+            pronunciation = driver.find_element_by_xpath(
+                "//div[@class='phons_n_am']/span[@class='phon']"
+            ).text
             definition = "<br>".join(
-                [f"{i + 1}.{x.text}" for i, x in enumerate(driver.find_elements_by_xpath("//span[@class='def']"))])
-            example = "<br><br>".join(list(map(lambda x: x.text, driver.find_elements_by_xpath("//span[@class='x']"))))
+                [
+                    f"{i + 1}.{x.text}"
+                    for i, x in enumerate(
+                        driver.find_elements_by_xpath("//span[@class='def']")
+                    )
+                ]
+            )
+            example = "<br><br>".join(
+                list(
+                    map(
+                        lambda x: x.text,
+                        driver.find_elements_by_xpath("//span[@class='x']"),
+                    )
+                )
+            )
         except NoSuchElementException:
             sg.popup_error("Could not find the word on Oxford Dictionary")
             break
         print(f"{word=} {pronunciation=} {definition=} {example=}")
 
         if values["_DECK_TYPE_COMBO_"] == "Basic (and reversed card)":
-            invoke("addNote",
-                   note={"deckName": values["_DECK_COMBO_"], "modelName": values["_DECK_TYPE_COMBO_"],
-                         "fields": {"Word": word, "Pronunciation": pronunciation, "Meaning": definition,
-                                    "Ex": example}, "options": {"allowDuplicate": True},
-                         "tags": ["AnkiAutoNoteAdder"]})
+            invoke(
+                "addNote",
+                note={
+                    "deckName": values["_DECK_COMBO_"],
+                    "modelName": values["_DECK_TYPE_COMBO_"],
+                    "fields": {
+                        "Word": word,
+                        "Pronunciation": pronunciation,
+                        "Meaning": definition,
+                        "Ex": example,
+                    },
+                    "options": {"allowDuplicate": True},
+                    "tags": ["AnkiAutoNoteAdder"],
+                },
+            )
         sg.popup("Note successfully added")
 
 window.close()
