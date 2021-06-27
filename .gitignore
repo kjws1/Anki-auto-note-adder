@@ -1,0 +1,5 @@
+env.json
+.idea
+__pycache__
+geckodriver.exe
+geckodriver.log
